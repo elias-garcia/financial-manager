@@ -6,3 +6,9 @@ api/node_modules
 
 # Build artifacts
 api/dist
+
+# Mongo DB
+data
+
+# Environment variables
+api/.env

@@ -10,9 +10,9 @@ function main(): void {
     }
   )
 
-  app.listen(3000, () => {
+  app.listen(process.env.PORT, () => {
     // tslint:disable-next-line: no-console
-    console.log(`API listening on port ${3000}`);
+    console.log(`API listening on port ${process.env.PORT}`);
   });
 }
 
