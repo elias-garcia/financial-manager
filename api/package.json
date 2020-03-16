@@ -35,6 +35,6 @@
     }
   },
   "lint-staged": {
-    "*.{ts}": "npm run lint -- --fix"
+    "*.ts": "npm run lint -- --fix"
   }
 }

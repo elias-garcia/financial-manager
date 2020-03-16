@@ -1,4 +1,5 @@
-import { Model, FilterQuery, Types } from "mongoose";
+import { Model, FilterQuery } from "mongoose";
+
 import { Document } from "./document.type";
 
 export class GenericRepository<T> {
@@ -36,7 +37,8 @@ export class GenericRepository<T> {
     newDocument: T
   ): Promise<Document<T>> {
     const document: Document<T> = await this.findById(id);
-    return document.update(newDocument).exec();
+    await document.update(newDocument).exec();
+    return document;
   }
 
   async deleteOne(id: Document<T>["_id"]): Promise<void> {

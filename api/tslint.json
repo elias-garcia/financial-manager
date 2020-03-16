@@ -12,6 +12,7 @@
       "call-signature",
       "parameter",
       "member-variable-declaration"
-    ]
+    ],
+    "no-unused-expression": true
   }
 }
