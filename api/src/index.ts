@@ -7,7 +7,7 @@ async function bootstrap(): Promise<void> {
   const app: express.Express = express();
   const port: number = configService.getPort();
 
-  await databaseClientService.connect(configService.getDbName());
+  await databaseClientService.connect(configService.getDbUri());
 
   app.listen(port, () => {
     // tslint:disable-next-line: no-console

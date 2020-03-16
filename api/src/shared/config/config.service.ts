@@ -23,8 +23,4 @@ export class ConfigService {
   getDbUri(): Config["DB_URI"] {
     return this.config.DB_URI;
   }
-
-  getDbName(): Config["DB_NAME"] {
-    return this.config.DB_NAME;
-  }
 }

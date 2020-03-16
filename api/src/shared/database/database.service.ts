@@ -1,22 +1,11 @@
-import { MongoClient, Db, MongoClientOptions } from "mongodb";
+import * as mongoose from "mongoose";
 
 export class DatabaseService {
-  private mongoClientOptions: MongoClientOptions = {
+  private connectionOptions: mongoose.ConnectionOptions = {
     useUnifiedTopology: true
   };
-  private client: MongoClient;
-  private db: Db | undefined;
 
-  constructor(databaseUri: string) {
-    this.client = new MongoClient(databaseUri, this.mongoClientOptions);
-  }
-
-  async connect(databaseName: string): Promise<void> {
-    await this.client.connect();
-    this.db = this.client.db(databaseName);
-  }
-
-  getDb(): Db | undefined {
-    return this.db;
+  async connect(databaseUri: string): Promise<void> {
+    await mongoose.connect(databaseUri, this.connectionOptions);
   }
 }
