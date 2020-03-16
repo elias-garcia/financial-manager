@@ -1,6 +1,8 @@
 # Base image
 FROM node:lts AS base
 
+RUN apt-get update && apt-get install -y "wait-for-it"
+
 # Builder image
 FROM base AS builder
 ENV NODE_ENV=development

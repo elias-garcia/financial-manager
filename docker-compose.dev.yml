@@ -1,12 +1,16 @@
-version: "3"
+version: "3.4"
 
 services:
-
   api:
+    build:
+      target: development
     ports:
       - 3000:3000
     depends_on:
       - database
+    volumes:
+      - ./api:/financial-manager-api
+    command: npm run start:dev
 
   database:
     image: mongo:bionic
