@@ -1,3 +1,17 @@
 {
-  "extends": "tslint:recommended"
+  "extends": [
+    "tslint:latest",
+    "tslint-plugin-prettier"
+  ],
+  "rules": {
+    "prettier": true,
+    "no-any": true,
+    "no-unsafe-any": true,
+    "typedef": [
+      true,
+      "call-signature",
+      "parameter",
+      "member-variable-declaration"
+    ]
+  }
 }

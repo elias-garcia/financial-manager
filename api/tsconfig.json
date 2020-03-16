@@ -2,6 +2,8 @@
   "compilerOptions": {
     "strict": true,
     "incremental": true,
-    "outDir": "dist"
+    "outDir": "dist",
+    "target": "ES6",
+    "moduleResolution": "Node"
   }
 }
