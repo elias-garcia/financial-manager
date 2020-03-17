@@ -1,14 +1,10 @@
 import { Config } from "./config.interface";
 import { configSchema } from "./config.schema";
 
-export class ConfigService {
+class ConfigService {
   private config: Config;
 
-  constructor(config: {}) {
-    // tslint:disable-next-line: no-console
-    console.log(config);
-    // tslint:disable-next-line: no-console
-    console.log(process.env);
+  constructor(config: { [key: string]: string | number | undefined }) {
     this.config = this.validateConfig(config);
   }
 
