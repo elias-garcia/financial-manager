@@ -10,7 +10,8 @@ services:
       - database
     volumes:
       - ./api:/financial-manager-api
-    command: npm run start:dev
+    command:
+      ["wait-for-it", "-t", "30", "database:27017", "--", "npm run start:dev"]
 
   database:
     image: mongo:bionic
