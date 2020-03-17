@@ -1,7 +1,7 @@
 import { Config } from "./config.interface";
 import { configSchema } from "./config.schema";
 
-class ConfigService {
+export class ConfigService {
   private config: Config;
 
   constructor(config: { [key: string]: string | number | undefined }) {
