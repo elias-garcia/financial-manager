@@ -1,7 +1,9 @@
 import * as mongoose from "mongoose";
+import { singleton } from "tsyringe";
 
+@singleton()
 export class DatabaseService {
-  private connectionOptions: mongoose.ConnectionOptions = {
+  private readonly connectionOptions: mongoose.ConnectionOptions = {
     useUnifiedTopology: true
   };
 

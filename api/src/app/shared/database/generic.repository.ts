@@ -3,11 +3,7 @@ import { Model, FilterQuery } from "mongoose";
 import { Document } from "./document.type";
 
 export class GenericRepository<T> {
-  private model: Model<Document<T>>;
-
-  constructor(model: Model<Document<T>>) {
-    this.model = model;
-  }
+  constructor(private readonly model: Model<Document<T>>) {}
 
   async createOne(document: T): Promise<Document<T>> {
     return this.model.create(document);
