@@ -13,6 +13,7 @@
       "parameter",
       "member-variable-declaration"
     ],
-    "no-unused-expression": true
+    "no-unused-expression": true,
+    "prefer-readonly": true
   }
 }

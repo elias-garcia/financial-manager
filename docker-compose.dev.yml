@@ -10,6 +10,7 @@ services:
       - database
     volumes:
       - ./api:/financial-manager-api
+      - /financial-manager-api/node_modules
     command:
       ["wait-for-it", "-t", "30", "database:27017", "--", "npm run start:dev"]
 
