@@ -2,12 +2,13 @@ import { singleton } from "tsyringe";
 
 import { Config } from "./config.interface";
 import { configValidationSchema } from "./config.validation-schema";
+import { ValidationService } from "../validation/validation.service";
 
 @singleton()
 export class ConfigService {
   private readonly config: Config;
 
-  constructor() {
+  constructor(private readonly validationService: ValidationService) {
     this.config = this.validateConfig({
       API_PORT: process.env.API_PORT,
       DB_URI: process.env.DB_URI,
@@ -16,7 +17,10 @@ export class ConfigService {
   }
 
   private validateConfig(config: {}): Config {
-    return configValidationSchema.validateSync(config);
+    return this.validationService.validate<Config>(
+      config,
+      configValidationSchema
+    );
   }
 
   getPort(): Config["API_PORT"] {
